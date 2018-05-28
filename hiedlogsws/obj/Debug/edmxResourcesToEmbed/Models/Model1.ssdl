@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HIEDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="request">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="method" Type="nvarchar" MaxLength="50" />
+    <Property Name="ip" Type="nvarchar" MaxLength="50" />
+    <Property Name="device" Type="nvarchar" MaxLength="50" />
+    <Property Name="browser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="response">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="responseStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="responseText" Type="nvarchar" MaxLength="50" />
+    <Property Name="responseTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="userId" Type="nvarchar" MaxLength="50" />
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="socialMedia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="userId" Type="nvarchar" MaxLength="50" />
+    <Property Name="SMname" Type="nvarchar" MaxLength="50" />
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="userId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="age" Type="nvarchar" MaxLength="50" />
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="HIEDModelStoreContainer">
+    <EntitySet Name="request" EntityType="Self.request" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="response" EntityType="Self.response" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="socialMedia" EntityType="Self.socialMedia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

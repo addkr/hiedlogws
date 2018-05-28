@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HIEDModelStoreContainer" CdmEntityContainer="HIEDEntities">
+    <EntitySetMapping Name="request">
+      <EntityTypeMapping TypeName="HIEDModel.request">
+        <MappingFragment StoreEntitySet="request">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="method" ColumnName="method" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="device" ColumnName="device" />
+          <ScalarProperty Name="browser" ColumnName="browser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="response">
+      <EntityTypeMapping TypeName="HIEDModel.response">
+        <MappingFragment StoreEntitySet="response">
+          <ScalarProperty Name="responseStatus" ColumnName="responseStatus" />
+          <ScalarProperty Name="responseText" ColumnName="responseText" />
+          <ScalarProperty Name="responseTime" ColumnName="responseTime" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="socialMedia">
+      <EntityTypeMapping TypeName="HIEDModel.socialMedia">
+        <MappingFragment StoreEntitySet="socialMedia">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="SMname" ColumnName="SMname" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="HIEDModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

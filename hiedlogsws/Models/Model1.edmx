@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HIEDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="request">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="method" Type="nvarchar" MaxLength="50" />
+          <Property Name="ip" Type="nvarchar" MaxLength="50" />
+          <Property Name="device" Type="nvarchar" MaxLength="50" />
+          <Property Name="browser" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="response">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="responseStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="responseText" Type="nvarchar" MaxLength="50" />
+          <Property Name="responseTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="userId" Type="nvarchar" MaxLength="50" />
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="socialMedia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="userId" Type="nvarchar" MaxLength="50" />
+          <Property Name="SMname" Type="nvarchar" MaxLength="50" />
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="userId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="sex" Type="nvarchar" MaxLength="50" />
+          <Property Name="age" Type="nvarchar" MaxLength="50" />
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="HIEDModelStoreContainer">
+          <EntitySet Name="request" EntityType="Self.request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="response" EntityType="Self.response" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="socialMedia" EntityType="Self.socialMedia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HIEDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="request">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="device" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="browser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="response">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="responseStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="responseText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="responseTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="userId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="socialMedia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="userId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SMname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="userId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="age" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="HIEDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="request" EntityType="Self.request" />
+          <EntitySet Name="response" EntityType="Self.response" />
+          <EntitySet Name="socialMedia" EntityType="Self.socialMedia" />
+          <EntitySet Name="user" EntityType="Self.user" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HIEDModelStoreContainer" CdmEntityContainer="HIEDEntities">
+          <EntitySetMapping Name="request">
+            <EntityTypeMapping TypeName="HIEDModel.request">
+              <MappingFragment StoreEntitySet="request">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="method" ColumnName="method" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="device" ColumnName="device" />
+                <ScalarProperty Name="browser" ColumnName="browser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="response">
+            <EntityTypeMapping TypeName="HIEDModel.response">
+              <MappingFragment StoreEntitySet="response">
+                <ScalarProperty Name="responseStatus" ColumnName="responseStatus" />
+                <ScalarProperty Name="responseText" ColumnName="responseText" />
+                <ScalarProperty Name="responseTime" ColumnName="responseTime" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="socialMedia">
+            <EntityTypeMapping TypeName="HIEDModel.socialMedia">
+              <MappingFragment StoreEntitySet="socialMedia">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="SMname" ColumnName="SMname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="HIEDModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

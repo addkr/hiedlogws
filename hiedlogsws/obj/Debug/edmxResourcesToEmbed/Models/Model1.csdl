@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HIEDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="request">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="device" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="browser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="response">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="responseStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="responseText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="responseTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="userId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="socialMedia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="userId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SMname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="userId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="age" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="HIEDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="request" EntityType="Self.request" />
+    <EntitySet Name="response" EntityType="Self.response" />
+    <EntitySet Name="socialMedia" EntityType="Self.socialMedia" />
+    <EntitySet Name="user" EntityType="Self.user" />
+  </EntityContainer>
+</Schema>

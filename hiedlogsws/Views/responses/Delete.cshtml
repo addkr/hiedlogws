@@ -1,0 +1,56 @@
+﻿@model hiedlogsws.Models.response
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>response</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.responseStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.responseStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.responseText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.responseText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.responseTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.responseTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,50 @@
+﻿@model hiedlogsws.Models.response
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>response</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.responseStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.responseStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.responseText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.responseText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.responseTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.responseTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
